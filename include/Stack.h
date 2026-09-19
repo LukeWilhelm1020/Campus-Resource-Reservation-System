@@ -1,16 +1,18 @@
 #ifndef STACK_H
 #define STACK_H
 
+#include "Link.h"
+
 struct CanceledReservations {
   Reservation reservation;
   CanceledReservations* next;
 
-  CanceledReservation(const Reservation&res) : reservation(res), next(nullptr){}
+  CanceledReservations(const Reservation&res) : reservation(res), next(nullptr){}
 };
 
 
 class Stack {
-  Public:
+  public:
     Stack(); //default constructor to create an empty cancellation stack
    
     //stores into the cancellation stack
@@ -22,9 +24,9 @@ class Stack {
     void display() const;
 
     bool isEmpty() const;
-  Private:
+  private:
     //will show the the most recent canceled reservation which will be the top of the stack
     CanceledReservations* top;
-}
+};
 
 #endif

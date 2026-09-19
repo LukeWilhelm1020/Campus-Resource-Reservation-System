@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include "Link.h"
 #include <iostream>
 
 using namespace std;
@@ -10,7 +11,7 @@ Stack::Stack() {
 //stores into the cancellation stack
 //This makes it be the LIFO fuctionality where the most recent will be on top
 void Stack::push(const Reservation& reservation) {
-  CanceledReservation* newReservation = new CanceledReservation(reservation);
+  CanceledReservations* newReservation = new CanceledReservations(reservation);
 
   newReservation -> next = top;
   top = newReservation;
@@ -20,7 +21,7 @@ Reservation Stack::pop() {
   if (top == nullptr) {
     return Reservation();
   }
-  CanceledReservation* temp = top;
+  CanceledReservations* temp = top;
   Reservation reservation = temp -> reservation;
   top = top -> next;
   delete temp;
@@ -33,7 +34,7 @@ void Stack::display() const {
     return;
   }
   cout << " ---Cancelation History--- " << endl;
-  CanceledReservation* current = top;
+  CanceledReservations* current = top;
 
   while (current != nullptr) {
     current -> reservation.display();
