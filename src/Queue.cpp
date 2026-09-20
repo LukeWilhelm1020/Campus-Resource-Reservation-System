@@ -77,3 +77,7 @@ void Queue::display() const {
 bool Queue::isEmpty() const {
     return front == nullptr;
 }
+
+WaitingStudent* Queue::frontStudent() const {
+    return front;
+}

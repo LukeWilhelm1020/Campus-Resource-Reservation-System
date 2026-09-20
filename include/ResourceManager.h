@@ -16,6 +16,9 @@ class ResourceManager {
     void displayResources() const; // displays the resources currently saved in the text file
 
     void displayAvailability() const; // displays if the resources are available or not
+
+    Resource* findResource(int resourceID); // finds a resource by ID
+
   private:
     vector<Resource> resources; //contains all resources loaded from the resource data file
 

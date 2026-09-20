@@ -37,6 +37,8 @@ class Queue {
         // Returns true if the waiting queue is empty.
         bool isEmpty() const;
 
+        WaitingStudent* frontStudent() const;
+
 };
 
 #endif
