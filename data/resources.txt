@@ -1,12 +1,12 @@
-1001, Study Room A, Study Room, 1
-1002, Study Room B, Study Room, 0
-1003, Study Room C, Study Room, 1
-2001, Laptop 1, Laptop, 1
-2002, Laptop 2, Laptop, 1 
-2003, Laptop 3, Laptop, 0 
-3001, Graphing Calculator, Calculator, 0 
-3002, Graphing Calculator, Calculator, 1 
-4001, Microscope, Lab Equipment, 1 
-4002, Beakers, Lab Equipment, 1 
-5001, Mr. A Office Hours, Appointment, 0 
-5002, Mrs. B Office Hours, Appointment, 1 
+1001,Study Room A,Study Room,1
+1002,Study Room B,Study Room,0
+1003,Study Room C,Study Room,1
+2001,Laptop 1,Laptop,1
+2002,Laptop 2,Laptop,1
+2003,Laptop 3,Laptop,0
+3001,Graphing Calculator,Calculator,0
+3002,Graphing Calculator,Calculator,1
+4001,Microscope,Lab Equipment,1
+4002,Beakers,Lab Equipment,1
+5001,Mr. A Office Hours,Appointment,0
+5002,Mrs. B Office Hours,Appointment,1
