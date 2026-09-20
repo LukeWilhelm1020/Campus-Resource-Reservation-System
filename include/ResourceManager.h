@@ -19,6 +19,12 @@ class ResourceManager {
 
     Resource* findResource(int resourceID); // finds a resource by ID
 
+    void searchResource(int resourceID) const;
+
+    void sortResources();
+
+    void generateReport() const;
+
   private:
     vector<Resource> resources; //contains all resources loaded from the resource data file
 

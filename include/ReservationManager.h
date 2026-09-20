@@ -34,11 +34,15 @@ public:
     // Cancels an active reservation and records it in the cancellation stack.                       
     void cancelReservation(int reservationID);
 
+    // Undo a reservation Cancellation
+    void undoCancellation();
+
     // Searches for an active reservation by reservation ID.
     void searchReservation(int reservationID);
 
     // Displays all currently active reservations.
     void displayReservations();
 
+    void generateReport();
 };
 #endif

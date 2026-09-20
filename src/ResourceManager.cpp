@@ -88,3 +88,58 @@ void ResourceManager::displayAvailability() const {
     cout << endl;
   }
 }
+// returns pointer to search by ID
+Resource* ResourceManager::findResource(int resourceID) {
+  for (Resource& resource : resources) {
+    if (resource.getResourceID() == resourceID) {
+      return &resource;
+    }
+  }
+
+  return nullptr;
+}
+// Searches and displays resource ID
+void ResourceManager::searchResource(int resourceID) const {
+  for (const Resource& resource : resources) {
+    if (resource.getResourceID() == resourceID) {
+      cout << "Resource found!" << endl;
+      resource.display();
+      return;
+    }
+  }
+
+  cout << "Resource " << resourceID << " not found." << endl;
+}
+
+// Sorts and displays sorted resources
+void ResourceManager::sortResources() {
+  for (int i = 0; i < resources.size() - 1; i++) {
+    for (int j = 0; j < resources.size() - i - 1; j++) {
+      if (resources[j].getResourceID() > resources[j + 1].getResourceID()) {
+        Resource temp = resources[j];
+        resources[j] = resources[j + 1];
+        resources[j + 1] = temp;
+      }
+    }
+  }
+  cout << "Resources sorted by Resource ID." << endl;
+}
+
+void ResourceManager::generateReport() const {
+  int availableCount = 0;
+  int unavailableCount = 0;
+
+  for (const Resource& resource : resources) {
+    if (resource.getAvailability()) {
+      availableCount++;
+    }
+    else {
+      unavailableCount++;
+    }
+  }
+
+  cout << "\n===== Resource Report =====" << endl;
+  cout << "Total Resources: " << resources.size() << endl;
+  cout << "Available Resources: " << availableCount << endl;
+  cout << "Unavailable Resources: " << unavailableCount << endl;
+}

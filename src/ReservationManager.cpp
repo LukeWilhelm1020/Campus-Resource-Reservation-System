@@ -87,9 +87,14 @@ void ReservationManager::cancelReservation(int reservationID) {
 
             resource->setAvailability(false);
 
+
+            string assignedStudentName = nextStudent->studentName;
             waitingList.dequeue();
+
             cout << "Resource automatically assigned to " 
                 << nextStudent->studentName << "." << endl;
+
+
             }
     }
 
@@ -110,6 +115,51 @@ void ReservationManager::searchReservation(int reservationID) {
 
 void ReservationManager::displayReservations() {
     activeReservations.displayReservations();
+}
+
+void ReservationManager::undoCancellation() {
+    if (cancellationHistory.isEmpty()) {
+        cout << "No cancellations to undo." << endl;
+        return;
+    }
+
+    Reservation restored = cancellationHistory.pop();
+
+    Resource* resource =
+        resourceManager.findResource(restored.resourceID);
+
+    if (resource == nullptr) {
+        cout << "Resource not found." << endl;
+        return;
+    }
+
+    if (!resource->getAvailability()) {
+        cout << "Resource is currently unavailable. Cannot undo cancellation." << endl;
+        cancellationHistory.push(restored);
+        return;
+    }
+
+    activeReservations.insertReservation(
+        restored.reservationID,
+        restored.studentID,
+        restored.studentName,
+        restored.resourceID,
+        restored.reservationDate
+    );
+
+    resource->setAvailability(false);
+
+    cout << "Cancellation undone successfully." << endl;
+}
+
+void ReservationManager::generateReport() {
+    cout << "\n===== Reservation Report =====" << endl;
+
+    cout << "Active Reservations:" << endl;
+    activeReservations.displayReservations();
+
+    cout << "\nWaiting List:" << endl;
+    waitingList.display();
 }
 
             
