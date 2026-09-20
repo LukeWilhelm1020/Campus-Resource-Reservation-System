@@ -11,7 +11,7 @@ class ResourceManager {
   public:
     ResourceManager (); //default constructor to create an empty resource manager
 
-    bool loadResources (string filename); //getting the information from the text file
+    bool loadResources (); //getting the information from the text file
 
     void displayResources() const; // displays the resources currently saved in the text file
 
