@@ -11,7 +11,7 @@ ResourceManager::ResourceManager() {
 
 //gets the information from the resource data file by opening the data file and checking if it opened successfully
 bool ResourceManager::loadResources() {
-  ifstream inputFile("data/resources.txt");
+  ifstream inputFile("resources.txt");
 
   if (!inputFile.is_open()) {
     cout << "Cannot open resource file." << endl;
