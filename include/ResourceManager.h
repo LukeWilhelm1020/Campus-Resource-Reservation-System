@@ -17,9 +17,9 @@ class ResourceManager {
 
     void displayAvailability() const; // displays if the resources are available or not
 
-    Resource* findResource(int resourceID); // finds a resource by ID
+    Resource* findResource(string resourceID); // finds a resource by ID
 
-    void searchResource(int resourceID) const;
+    void searchResource(string resourceID) const;
 
     void sortResources();
 

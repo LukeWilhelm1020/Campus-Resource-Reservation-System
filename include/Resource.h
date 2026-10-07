@@ -8,12 +8,12 @@ using namespace std;
 class Resource {
     public:
         Resource(); 
-        Resource(int id, string name, string type, bool available); 
+        Resource(string id, string name, string type, bool available);
         
         //the prooject asks for that each resource must contain an ID, Name, Type and status of availability
         
-        void setResourceID(int id);    
-        int getResourceID() const;
+        void setResourceID(string id);
+        string getResourceID() const;
         
         void setResourceName(string name);
         string getResourceName() const;
@@ -26,7 +26,7 @@ class Resource {
             
         void display() const; // be able to display all the resources
     private:
-        int resourceID;
+        string resourceID;
         string resourceName;
         string resourceType;
         bool available;

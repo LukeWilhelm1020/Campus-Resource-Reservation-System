@@ -28,15 +28,16 @@ int main() {
     do {
         cout << "\n===== Campus Resource Reservation System =====" << endl;
         cout << "1. View Resources" << endl;
-        cout << "2. Create Reservation" << endl;
-        cout << "3. Cancel Reservation" << endl;
-        cout << "4. View Waiting Lists" << endl;
-        cout << "5. Undo Cancellation" << endl;
-        cout << "6. Search Reservations" << endl;
-        cout << "7. Search Resources" << endl;
-        cout << "8. Sort Resources" << endl;
-        cout << "9. Generate Report" << endl;
-        cout << "10. Exit" << endl;
+        cout << "2. View Availability" << endl;
+        cout << "3. Create Reservation" << endl;
+        cout << "4. Cancel Reservation" << endl;
+        cout << "5. View Waiting Lists" << endl;
+        cout << "6. Undo Cancellation" << endl;
+        cout << "7. Search Reservations" << endl;
+        cout << "8. Search Resources" << endl;
+        cout << "9. Sort Resources" << endl;
+        cout << "10. Generate Report" << endl;
+        cout << "11. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -45,12 +46,16 @@ int main() {
             case 1:
                 resourceManager.displayResources();
                 break;
+                
+            case 2:
+                resourceManager.displayAvailability();
+                break;
 
-            case 2: {
+            case 3: {
                 int reservationID;
                 int studentID;
                 string studentName;
-                int resourceID;
+                string resourceID;
                 string reservationDate;
 
                 // Displaying interface options
@@ -82,7 +87,7 @@ int main() {
                 break;
             }   
             
-            case 3: {
+            case 4: {
                 int reservationID;
 
                 cout << "Enter reservation ID to cancel: ";
@@ -93,15 +98,15 @@ int main() {
                 break;
             }
 
-            case 4:
+            case 5:
                 waitingList.display();
                 break;
 
-            case 5:
+            case 6:
                 reservationManager.undoCancellation();
                 break;
 
-            case 6: {
+            case 7: {
                 int reservationID;
                 cout << "Enter reservation ID: ";
                 cin >> reservationID;
@@ -109,8 +114,8 @@ int main() {
                 break;
             }
 
-            case 7: {
-                int resourceID;
+            case 8: {
+                string resourceID;
 
                 cout << "Enter resource ID: ";
                 cin >> resourceID;
@@ -120,23 +125,23 @@ int main() {
                 break;
             }
 
-            case 8:
+            case 9:
                 resourceManager.sortResources();
                 break;
 
-            case 9:
+            case 10:
                 resourceManager.generateReport();
                 reservationManager.generateReport();
                 break;
 
-            case 10:
+            case 11:
                 cout << "Exiting program." << endl;
                 break;
 
             default:
                 cout << "That option is not implemented yet." << endl;
         }
-    } while (choice != 10);
+    } while (choice != 11);
     return 0;
 
 }

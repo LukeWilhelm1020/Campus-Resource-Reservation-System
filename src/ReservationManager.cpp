@@ -16,7 +16,7 @@ ReservationManager::ReservationManager(ResourceManager& resources,
  void ReservationManager::createReservation(int reservationID,
                                             int studentID,
                                             string studentName,
-                                            int resourceID,
+                                            string resourceID,
                                             string reservationDate) {
     Resource* resource = resourceManager.findResource(resourceID);                                            
         

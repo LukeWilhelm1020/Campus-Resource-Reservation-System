@@ -29,15 +29,15 @@ bool ResourceManager::loadResources() {
     string availabilityString;
 
   //reads the value when seperated by the commas from the list 
-    getline(ss, idString, ',');
-    getline(ss, name, ',');
-    getline(ss, type, ',');
-    getline(ss, availabilityString, ',');
+    getline(ss, idString, '|');
+    getline(ss, name, '|');
+    getline(ss, type, '|');
+    getline(ss, availabilityString, '|');
     
   //chnages the strings to an integer and change the bool to be 1 = true, 0 for false and store them into the vector
-    int id = stoi(idString);
-    int availability = stoi(availabilityString);
-    bool available = (availability == 1);
+    string id = idString;
+    bool available = (availabilityString == "Available");
+      
     Resource resource(id, name, type, available);
     resources.push_back(resource);
   }
@@ -89,7 +89,7 @@ void ResourceManager::displayAvailability() const {
   }
 }
 // returns pointer to search by ID
-Resource* ResourceManager::findResource(int resourceID) {
+Resource* ResourceManager::findResource(string resourceID) {
   for (Resource& resource : resources) {
     if (resource.getResourceID() == resourceID) {
       return &resource;
@@ -99,7 +99,7 @@ Resource* ResourceManager::findResource(int resourceID) {
   return nullptr;
 }
 // Searches and displays resource ID
-void ResourceManager::searchResource(int resourceID) const {
+void ResourceManager::searchResource(string resourceID) const {
   for (const Resource& resource : resources) {
     if (resource.getResourceID() == resourceID) {
       cout << "Resource found!" << endl;

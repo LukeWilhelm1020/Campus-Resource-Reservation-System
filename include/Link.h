@@ -11,7 +11,7 @@ struct Reservation {
     int reservationID;
     int studentID;
     string studentName;
-    int resourceID;
+    string resourceID;
     string reservationDate;
     Reservation* next;
 
@@ -20,13 +20,13 @@ struct Reservation {
         : reservationID(0),
         studentID(0),
         studentName(""),
-        resourceID(0),
+        resourceID(""),
         reservationDate(""),
         next(nullptr) {}
 
     // Creates a reservation node.
-    Reservation(int id, int studentId, string student, 
-        int resourceId, string date) {
+    Reservation(int id, int studentId, string student,
+        string resourceId, string date) {
             reservationID = id;
             studentID = studentId;
             studentName = student;
@@ -59,7 +59,7 @@ public:
 
     // Insert a new reservation
     void insertReservation(int id, int studentId, string student,
-                            int resourceId, string date) {
+                            string resourceId, string date) {
 
         Reservation* newReservation =
             new Reservation(id, studentId, student, resourceId, date);

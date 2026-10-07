@@ -4,23 +4,23 @@
 using namespace std;
 
 Resource::Resource() { //for the defualt constrictor they all initialize for Null or 0 and blank
-    resourceID = 0;
+    resourceID = "";
     resourceName = "";
     resourceType = "";
     available = true;
 }
 
-Resource::Resource(int id, string name, string type, bool status) {
+Resource::Resource(string id, string name, string type, bool status) {
     resourceID = id;
     resourceName = name;
     resourceType = type;
     available = status;
 }
 
-int Resource::getResourceID() const {
+string Resource::getResourceID() const {
     return resourceID;
 }
-void Resource::setResourceID(int id) {
+void Resource::setResourceID(string id) {
     resourceID = id;
 }
 

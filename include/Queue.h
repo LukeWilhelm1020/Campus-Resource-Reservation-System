@@ -8,11 +8,11 @@ using namespace std;
 struct WaitingStudent {
     int studentID;
     string studentName;
-    int resourceID;
+    string resourceID;
     WaitingStudent* next;
 
     // Creates waiting list entry for a student and a resource.
-    WaitingStudent(int id, string name, int resource)
+    WaitingStudent(int id, string name, string resource)
         :studentID(id), studentName(name), resourceID(resource), next(nullptr) {}
 
 };
@@ -29,7 +29,7 @@ class Queue {
         // Creates an empty waiting queue.
         Queue();
         // Adds one student to the end of the waiting queue.
-        void enqueue(int studentID, string studentName, int resourceID);
+        void enqueue(int studentID, string studentName, string resourceID);
         // Removes the student at the front of the waiting queue.
         void dequeue();
         // Displays all students currently in the waiting queue.

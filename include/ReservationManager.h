@@ -28,7 +28,7 @@ public:
     void createReservation(int reservationID,
                             int studentID,
                             string studentName,
-                            int resourceID,
+                            string resourceID,
                             string reservationDate);
 
     // Cancels an active reservation and records it in the cancellation stack.                       

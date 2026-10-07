@@ -10,7 +10,7 @@ Queue::Queue() {
 
 // Adds a student to the rear of the queue.
 // Students are processed in the same order they were added.
-void Queue::enqueue(int studentID, string studentName, int resourceID) {
+void Queue::enqueue(int studentID, string studentName, string resourceID) {
     WaitingStudent* newStudent =
         new WaitingStudent(studentID, studentName, resourceID);
 
