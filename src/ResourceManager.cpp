@@ -214,9 +214,10 @@ void ResourceManager::generateReport() const {
     cout << "Available Resources: " << availableCount << endl;
     cout << "Unavailable Resources: " << unavailableCount << endl;
 }
-    
 
- 
+const vector<Resource>& ResourceManager::getResources() const {
+    return resources;
+}
             
         
         
