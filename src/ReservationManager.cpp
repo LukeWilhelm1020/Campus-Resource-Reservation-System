@@ -158,6 +158,12 @@ void ReservationManager::generateReport() {
     cout << "Active Reservations:" << endl;
     activeReservations.displayReservations();
 
+    cout << "\nResource Utilization:" << endl;
+    for (const Resource& resource : resourceManager.getResources()) {
+        int count = activeReservations.countResourceReservations(resource.getResourceID());
+        cout << resource.getResourceID() << " - " << resource.getResourceName() << ": " << count << " reservations" << endl;
+    }
+
     cout << "\nWaiting List:" << endl;
     waitingList.display();
 }
