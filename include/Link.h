@@ -196,6 +196,18 @@ public:
             current = current->next;
         }
     }
+
+    int countResourceReservations(const string& resourceID) const {
+        int count = 0;
+        Reservation* current = head;
+        while (current != nullptr) {
+            if (current -> resourceID == resourceID) {
+                count++;
+            }
+            current = current -> next;
+        }
+        return count;
+    }
 };
 
 
