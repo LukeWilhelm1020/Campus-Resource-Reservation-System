@@ -111,35 +111,115 @@ void ResourceManager::searchResource(string resourceID) const {
   cout << "Resource " << resourceID << " not found." << endl;
 }
 
-// Sorts and displays sorted resources
+//Sorts resources by name with a merge-sort
 void ResourceManager::sortResources() {
-  for (int i = 0; i < resources.size() - 1; i++) {
-    for (int j = 0; j < resources.size() - i - 1; j++) {
-      if (resources[j].getResourceID() > resources[j + 1].getResourceID()) {
-        Resource temp = resources[j];
-        resources[j] = resources[j + 1];
-        resources[j + 1] = temp;
-      }
+    if (resources.size() > 1) {
+        mergeSort(0, static_cast<int>(resources.size()) - 1);
     }
-  }
-  cout << "Resources sorted by Resource ID." << endl;
+    
+    cout << "Resources sorted by Resource Name." << endl;
+}
+
+//Recursively divide the resource vector into sections
+void ResourceManager::mergeSort(int left, int right) {
+    if (left >= right) {
+        return;
+    }
+    
+    int middle = left + (right - left) / 2;
+    
+    mergeSort(left, middle);
+    mergeSort(middle + 1, right);
+    merge(left, middle, right);
+}
+
+//Combine two sorted sections into a single section
+void ResourceManager::merge(int left, int middle, int right) {
+
+    vector<Resource> temporary;
+
+    temporary.reserve(right - left + 1);
+
+    int i = left;
+
+    int j = middle + 1;
+
+    while (i <= middle && j <= right) {
+
+        // Sort by resource name
+
+        if (resources[i].getResourceName() <= resources[j].getResourceName()) {
+
+            temporary.push_back(resources[i]);
+
+            ++i;
+
+        }
+
+        else {
+
+            temporary.push_back(resources[j]);
+
+            ++j;
+
+        }
+
+    }
+
+    // Copy remaining resources from the left half
+
+    while (i <= middle) {
+
+        temporary.push_back(resources[i]);
+
+        ++i;
+
+    }
+
+    // Copy remaining resources from the right half
+
+    while (j <= right) {
+
+        temporary.push_back(resources[j]);
+
+        ++j;
+
+    }
+
+    // Copy the sorted section back into resources
+
+    for (int k = 0; k < static_cast<int>(temporary.size()); ++k) {
+
+        resources[left + k] = temporary[k];
+
+    }
+
 }
 
 void ResourceManager::generateReport() const {
-  int availableCount = 0;
-  int unavailableCount = 0;
-
-  for (const Resource& resource : resources) {
-    if (resource.getAvailability()) {
-      availableCount++;
+    int availableCount = 0;
+    int unavailableCount = 0;
+    
+    for (const Resource& resource : resources) {
+        if (resource.getAvailability()) {
+            availableCount++;
+        }
+        else {
+            unavailableCount++;
+        }
     }
-    else {
-      unavailableCount++;
-    }
-  }
-
-  cout << "\n===== Resource Report =====" << endl;
-  cout << "Total Resources: " << resources.size() << endl;
-  cout << "Available Resources: " << availableCount << endl;
-  cout << "Unavailable Resources: " << unavailableCount << endl;
+    
+    cout << "\n==== Resource Report ====" << endl;
+    cout << "Total Resources: " << resources.size() << endl;
+    cout << "Available Resources: " << availableCount << endl;
+    cout << "Unavailable Resources: " << unavailableCount << endl;
 }
+    
+
+ 
+            
+        
+        
+    
+
+

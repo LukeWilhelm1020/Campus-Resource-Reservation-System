@@ -28,6 +28,10 @@ class ResourceManager {
   private:
     vector<Resource> resources; //contains all resources loaded from the resource data file
 
+    //Merge Sort helpers, implementing without the use of a sort library.
+    void mergeSort(int left, int right);
+    void merge(int left, int middle, int right);
+    
 };
 
 #endif

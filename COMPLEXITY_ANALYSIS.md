@@ -24,8 +24,7 @@ and put back in the reservation list. O(1)
 ---Resource Management---
 Resource Search: stored in a vector, searching requires checking all sources. O(n)
 
-Resource Sorting: Uses a bubble-sort approach, meaning the worst case scenario, every resource
-may be compared. O(n^2)
+Resource Sorting: Uses a Merge Sort to sort resources by name, The resources are divided recursivley into havles, sorted, then merges back. The time complexity is always O(n log n).
 
 Resource Loading: Every resource in the input file is read and added to the vector. O(n)
 
