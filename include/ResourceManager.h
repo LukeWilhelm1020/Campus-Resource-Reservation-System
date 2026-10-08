@@ -25,6 +25,8 @@ class ResourceManager {
 
     void generateReport() const;
 
+    const vector<Resource>& getResources() const; //accessing resources without making changes
+
   private:
     vector<Resource> resources; //contains all resources loaded from the resource data file
 
