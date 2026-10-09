@@ -170,6 +170,26 @@ void ReservationManager::generateReport() {
         cout << resource.getResourceID() << " - " << resource.getResourceName() << ": " << count << " students waiting" << endl;
     }
 
+    cout << "\nMost Requested Resources:" << endl;
+    int maxReservations = 0;
+    for (const Resource& resource : resourceManager.getResources()) {
+        int count = activeReservations.countResourceReservations(resource.getResourceID());
+        if (count > maxReservations) {
+            maxReservations = count;
+        }
+    }
+    if (maxReservations == 0) {
+        cout << "No reservations to determine most requested resource" << endl;
+    }
+    else {
+        for (const Resource& resource : resourceManager.getResources()) {
+            int count = activeReservations.countResourceReservations(resource.getResourceID());
+            if (count == maxReservations) {
+                count << resource.getResourceID() << " - " << resource.getResourceName() << ": " << count << " reservations" << endl;
+            }
+        }
+    }
+
     cout << "\nWaiting List:" << endl;
     waitingList.display();
 }
