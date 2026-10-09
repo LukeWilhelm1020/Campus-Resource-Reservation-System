@@ -81,3 +81,15 @@ bool Queue::isEmpty() const {
 WaitingStudent* Queue::frontStudent() const {
     return front;
 }
+
+int Queue::countResourceWaiting(const string& resourceID) const {
+    int count = 0;
+    WaitingStudent* current = front;
+    while (current != nullptr) {
+        if (current -> resourceID == resourceID) {
+            count++;
+        }
+        current = current -> next;
+    }
+    return count;
+}
