@@ -38,6 +38,7 @@ class Queue {
         bool isEmpty() const;
 
         WaitingStudent* frontStudent() const;
+        int countResourceWaiting(const string& resourceID) const;
 
 };
 
