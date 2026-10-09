@@ -185,7 +185,7 @@ void ReservationManager::generateReport() {
         for (const Resource& resource : resourceManager.getResources()) {
             int count = activeReservations.countResourceReservations(resource.getResourceID());
             if (count == maxReservations) {
-                count << resource.getResourceID() << " - " << resource.getResourceName() << ": " << count << " reservations" << endl;
+                cout << resource.getResourceID() << " - " << resource.getResourceName() << ": " << count << " reservations" << endl;
             }
         }
     }
