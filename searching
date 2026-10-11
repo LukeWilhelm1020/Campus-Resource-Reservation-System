@@ -1,1 +1,30 @@
+void searchByStudentID(int studentID);
+void ReservationManager::searchByStudentID(int studentID)
+{
+    Link* current = activeReservations.getHead();
+    bool found = false;
 
+    while (current != nullptr)
+    {
+        if (current->studentID == studentID)
+        {
+            cout << "\nReservation Found:" << endl;
+            cout << "Reservation ID: " << current->reservationID << endl;
+            cout << "Student ID: " << current->studentID << endl;
+            cout << "Student Name: " << current->studentName << endl;
+            cout << "Resource ID: " << current->resourceID << endl;
+            cout << "Reservation Date: " << current->reservationDate << endl;
+            cout << "------------------------" << endl;
+
+            found = true;
+        }
+
+        current = current->next;
+    }
+
+    if (!found)
+    {
+        cout << "No reservations found for Student ID: "
+             << studentID << endl;
+    }
+}
